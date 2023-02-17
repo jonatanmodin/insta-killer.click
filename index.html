@@ -1,0 +1,293 @@
+<html>
+  <head>
+    <script src="p5.js"></script>
+    <script src="matter.js"></script>
+    <script src="sketch.js"></script>
+    <script src="box.js"></script>
+    <script src="window.js"></script>
+    <script src="textdisplay.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Insta Killer</title>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://cdn.glitch.global/7db61c98-02ba-4ce5-a6fd-758d2b3cb1ed/favicon3.png?v=1676408390062"
+    />
+
+    <style>
+      html {
+        cursor: url(https://cdn.glitch.global/7db61c98-02ba-4ce5-a6fd-758d2b3cb1ed/cursor2.png?v=1676301058920)
+            21 21,
+          auto;
+      }
+      body {
+        font-family: sans-serif;
+        margin: auto;
+        overflow: hidden;
+      }
+      form {
+        margin: auto;
+        align: center;
+        padding-bottom: 8vh;
+        user-select: none;
+        scale: 1.3;
+      }
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"] {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 1.1vw;
+        background-color: #312d24;
+        border: none;
+        color: white;
+        cursor: url(https://cdn.glitch.global/7db61c98-02ba-4ce5-a6fd-758d2b3cb1ed/cursor2.png?v=1676301058920)
+            21 21,
+          auto;
+        width: 13vw;
+        height: 3vw;
+        margin: 0px 2vw;
+        border-radius: 100vw;
+        letter-spacing: 0rem;
+        transition: 1.5s;
+      }
+      input[type="button"]:hover,
+      input[type="submit"]:hover,
+      input[type="reset"]:hover {
+        letter-spacing: 0.07rem;
+        font-weight: 700;
+        transition: 0.5s;
+      }
+      input[type="button"]:active,
+      input[type="submit"]:active,
+      input[type="reset"]:active {
+        background-color: White;
+        transition: 0.1s;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 13vw;
+        height: 2.4vw;
+        margin: 0px 2vw;
+        border: none;
+        border-bottom: 0.2vw solid #312d24;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 1.3vw;
+        color: #312d24;
+        outline: none;
+        background: none;
+        letter-spacing: 0rem;
+        transition: 0.5s;
+        cursor: url(https://cdn.glitch.global/7db61c98-02ba-4ce5-a6fd-758d2b3cb1ed/cursor2.png?v=1676301058920)
+            21 21,
+          auto;
+      }
+      input[type="text"]:hover,
+      input[type="password"]:hover {
+        transition: 0.5s;
+      }
+      ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #312d24;
+      }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        position: fixed;
+        font-size: 12vw;
+        line-height: 90%;
+        align-self: flex-end;
+        margin-bottom: 0.7vw;
+        margin-left: 1vw;
+        color: 181611;
+        user-select: none;
+      }
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 2.5vw;
+        color: 181611;
+        letter-spacing: 0rem;
+        transition: 0.5s;
+      }
+      h2:hover {
+        font-weight: 700;
+        letter-spacing: 0.07rem;
+        transition: 0.5s;
+      }
+      h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 1.3vw;
+        color: 181611;
+        letter-spacing: 0rem;
+        transition: 0.5s;
+        text-align: right;
+        line-height: 200%;
+        position: fixed;
+        right: 2vw;
+        bottom: -0.5vw;
+      }
+      p {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 1.3vw;
+        color: 181611;
+        letter-spacing: 0rem;
+        transition: 0.5s;
+        width: 25vw;
+      }
+      #left {
+        text-align: left;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      #center {
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      #right {
+        text-align: right;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        text-decoration: underline;
+      }
+      #container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        font-size: 100px;
+      }
+      #header {
+        display: flex;
+        width: 97vw;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        left: 1.5vw;
+        top: -1.1vw;
+      }
+      #header2 {
+        display: flex;
+        width: 97vw;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        left: 1.5vw;
+        top: 4.1vw;
+      }
+      #footer {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        justify-items: flex-end;
+        align-items: flex-end;
+        align-content: flex-end;
+        position: fixed;
+      }
+      iframe {
+        position: fixed;
+        margin-left: 100vw;
+      }
+      #line,
+      #line2 {
+        background-color: #312d24;
+        margin-top: 1vh;
+        margin: auto;
+        height: 0.26vw;
+        width: 30vw;
+      }
+      #information {
+        text-decoration: underline;
+      }
+      #links {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header2">
+        <p id="left">
+          1. ‎ ‎ Turn off two-factor authentication in your Instagram account
+          settings. <br /><br />2. ‎ ‎ Enter your username and password.
+          <br /><br />3. ‎ ‎ Get your account permanently deleted and be free
+          from social media.
+        </p>
+        <p id="center">
+          Did your last screen time report leave you with an uneasy feeling?
+          <br />
+          <br />Glued to your phone is no way to live your life, and a week-long
+          digital detox probably won’t help.
+        </p>
+        <p id="right">Share your goodbyes</p>
+      </div>
+      <div id="header">
+        <h2 id="how" onmouseenter="displayleft()" onmouseleave="hideleft()">
+          How to
+        </h2>
+        <div id="line"></div>
+        <h2 id="why" onmouseenter="displaycenter()" onmouseleave="hidecenter()">
+          Why?
+        </h2>
+        <div id="line2"></div>
+        <h2 id="share" onmouseenter="displayright()" onmouseleave="hideright()">
+          Share
+        </h2>
+      </div>
+      <form id="form">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="USERNAME"
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="PASSWORD"
+          autocomplete="off"
+        />
+        <input
+          type="button"
+          id="submit"
+          value="Kill my account"
+          onmouseover="myFunction()"
+          onclick="go()"
+        />
+      </form>
+      <h1>
+        Instagram <br />
+        Killer
+      </h1>
+      <h3 id="links">
+      This Single Serving Site is based on the <a href="https://en.wikipedia.org/wiki/Reality">Reality Wikipedia entry</a> <br>  
+      and is part of the <a href="https://2023.worldwidewebring.club">Social Media Webring</a> ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎Information <br />‎</h3>
+      <h3 id="information" onclick="displaylinks()">Information <br /> ‎ </h3>
+      <h3>3 accounts deleted as of 2022-02-15</h3>
+    </div>
+    <iframe
+      src="placeholder"
+      name="iframe_a"
+      id="iframe"
+      style="border: none"
+    ></iframe>
+  </body>
+</html>
