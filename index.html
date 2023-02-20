@@ -6,7 +6,7 @@
     <script src="box.js"></script>
     <script src="window.js"></script>
     <script src="textdisplay.js"></script>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,6 +39,8 @@
         padding-bottom: 8vh;
         user-select: none;
         scale: 1.3;
+        opacity: 1;
+        transition: 1.5s;
       }
       input[type="button"],
       input[type="submit"],
@@ -91,6 +93,11 @@
             21 21,
           auto;
       }
+      
+      a {
+        color: #312d24;
+      }
+      
       input[type="text"]:hover,
       input[type="password"]:hover {
         transition: 0.5s;
@@ -108,14 +115,14 @@
         align-self: flex-end;
         margin-bottom: 0.7vw;
         margin-left: 1vw;
-        color: 181611;
+        color: #312d24;
         user-select: none;
       }
       h2 {
         font-family: "Space Grotesk", sans-serif;
         font-weight: 500;
         font-size: 2.5vw;
-        color: 181611;
+        color: #312d24;
         letter-spacing: 0rem;
         transition: 0.5s;
       }
@@ -127,24 +134,38 @@
       h3 {
         font-family: "Space Grotesk", sans-serif;
         font-weight: 500;
-        font-size: 1.3vw;
-        color: 181611;
+        font-size: 1.5vw;
+        color: #312d24;
         letter-spacing: 0rem;
         transition: 0.5s;
         text-align: right;
-        line-height: 200%;
+        line-height: 180%;
         position: fixed;
         right: 2vw;
         bottom: -0.5vw;
       }
+      h4 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 1.5vw;
+        color: #312d24;
+        width: 100vw;
+        text-align: center;
+        position: fixed;
+        align: auto;
+        margin-top: 55vh;
+        user-select: none;
+        opacity: 0;
+        transition: 0.5s;
+      }
       p {
         font-family: "Space Grotesk", sans-serif;
         font-weight: 500;
-        font-size: 1.3vw;
-        color: 181611;
+        font-size: 1.5vw;
+        color: #312d24;
         letter-spacing: 0rem;
         transition: 0.5s;
-        width: 25vw;
+        width: 29vw;
       }
       #left {
         text-align: left;
@@ -161,6 +182,7 @@
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
         text-decoration: underline;
+        height: auto;
       }
       #container {
         display: flex;
@@ -214,6 +236,7 @@
       }
       #information {
         text-decoration: underline;
+        cursor: pointer;
       }
       #links {
         opacity: 0;
@@ -235,7 +258,7 @@
           <br />Glued to your phone is no way to live your life, and a week-long
           digital detox probably won’t help.
         </p>
-        <p id="right">Share your goodbyes</p>
+        <p id="right"><a href="https://twitter.com/intent/tweet?text=Goodbye%20world%20insta-killer.click" target="_blank">Share your goodbyes</a></p>
       </div>
       <div id="header">
         <h2 id="how" onmouseenter="displayleft()" onmouseleave="hideleft()">
@@ -273,15 +296,23 @@
           onclick="go()"
         />
       </form>
+      <h4 id="tagline">Your account will soon be permanently deleted. ‎ ‎ This action is irreversible.</h4>
       <h1>
         Instagram <br />
         Killer
       </h1>
       <h3 id="links">
-      This Single Serving Site is based on the <a href="https://en.wikipedia.org/wiki/Reality">Reality Wikipedia entry</a> <br>  
-      and is part of the <a href="https://2023.worldwidewebring.club">Social Media Webring</a> ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎Information <br />‎</h3>
-      <h3 id="information" onclick="displaylinks()">Information <br /> ‎ </h3>
-      <h3>3 accounts deleted as of 2022-02-15</h3>
+      This Single Serving Site is part of the <a href="https://2023.worldwidewebring.club" target="_blank">Social Media Webring</a><br> ‎<a href="https://identity.rodeo/" target="_blank">← Previous</a> ‎ ‎ ‎ ‎ | ‎ ‎ ‎
+        ‎<a href="http://lovelovelovelovelovelovelovelovelovelovelovelove-love-love-love.me/" target="_blank">Next →</a> ‎ ‎ ‎ ‎ ‎ ‎ Made by <a href="https://jonatanmodin.myportfolio.com" target="_blank">Jonatan Modin</a> ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ <br />‎</h3>
+      <h3 id="information" onclick="displaylinks()">Open information <br /> ‎ </h3>
+      <h3 id="date">3 accounts deleted as of 2022-02-15</h3>
+          <script>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = "3 accounts deleted as of " + y + "-" + m + "-" + d;
+    </script>
     </div>
     <iframe
       src="placeholder"
