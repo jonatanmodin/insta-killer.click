@@ -24,8 +24,11 @@ async function hideright() {
 }
 
 function displaylinks() {
-  if (document.getElementById("links").style.opacity = 0);
-  document.getElementById("links").style.opacity = 1
-  //if (document.getElementById("links").style.opacity = 1);
-  //document.getElementById("links").style.opacity = 0
-}
+  if (document.getElementById("links").style.opacity == 0)
+    {document.getElementById("links").style.opacity = 1; 
+    document.getElementById("information").innerHTML = "Close information <br /> ‎ ";
+    }
+  else
+    {document.getElementById("links").style.opacity = 0; 
+    document.getElementById("information").innerHTML = "Open information <br /> ‎ ";
+    }}
