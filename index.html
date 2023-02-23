@@ -6,7 +6,7 @@
     <script src="box.js"></script>
     <script src="window.js"></script>
     <script src="textdisplay.js"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,6 +32,28 @@
         font-family: sans-serif;
         margin: auto;
         overflow: hidden;
+      }
+      .div-only-mobile {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        padding-top: 35vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 5.5vw;
+        line-height: 150%;
+        color: #252018;
+        background-color: rgba(230, 223, 208, 1);
+        display: none;
+      }
+      @media screen and (max-width: 1000px) {
+        .div-only-mobile {
+          display: block;
+        }
       }
       form {
         margin: auto;
@@ -93,11 +115,11 @@
             21 21,
           auto;
       }
-      
+
       a {
         color: #252018;
       }
-      
+
       input[type="text"]:hover,
       input[type="password"]:hover {
         transition: 0.5s;
@@ -258,7 +280,13 @@
           <br />Glued to your phone is no way to live your life, and a week-long
           digital detox probably won’t help.
         </p>
-        <p id="right"><a href="https://twitter.com/intent/tweet?text=I%27m%20saying%20goodbye%20forever%20to%20my%20Instagram%20account%20with%20%23instakiller%0A%0Awww.insta-killer.click" target="_blank">Share your goodbyes</a></p>
+        <p id="right">
+          <a
+            href="https://twitter.com/intent/tweet?text=I%27m%20saying%20goodbye%20forever%20to%20my%20Instagram%20account%20with%20%23instakiller%0A%0Awww.insta-killer.click"
+            target="_blank"
+            >Share your goodbyes</a
+          >
+        </p>
       </div>
       <div id="header">
         <h2 id="how" onmouseenter="displayleft()" onmouseleave="hideleft()">
@@ -296,23 +324,45 @@
           onclick="go()"
         />
       </form>
-      <h4 id="tagline">Your account will soon be permanently deleted. ‎ ‎ This action is irreversible.</h4>
+      <h4 id="tagline">
+        Your account will soon be permanently deleted. ‎ ‎ This action is
+        irreversible.
+      </h4>
       <h1>
         Instagram <br />
         Killer
       </h1>
       <h3 id="links">
-      This Single Serving Site is part of the <a href="https://2023.worldwidewebring.club" target="_blank">Social Media Webring</a><br> ‎<a href="https://identity.rodeo/" target="_blank">← Previous</a> ‎ ‎ ‎ ‎ | ‎ ‎ ‎
-        ‎<a href="http://lovelovelovelovelovelovelovelovelovelovelovelove-love-love-love.me/" target="_blank">Next →</a> ‎ ‎ ‎ ‎ ‎ ‎ Made by <a href="https://jonatanmodin.myportfolio.com" target="_blank">Jonatan Modin</a> ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ <br />‎</h3>
-      <h3 id="information" onclick="displaylinks()">Open information <br /> ‎ </h3>
+        This Single Serving Site is part of the
+        <a href="https://2023.worldwidewebring.club" target="_blank"
+          >Social Media Webring</a
+        ><br />
+        ‎<a href="https://identity.rodeo/" target="_blank">← Previous</a> ‎ ‎ ‎
+        ‎ | ‎ ‎ ‎ ‎<a
+          href="http://lovelovelovelovelovelovelovelovelovelovelovelove-love-love-love.me/"
+          target="_blank"
+          >Next →</a
+        >
+        ‎ ‎ ‎ ‎ ‎ ‎ Made by
+        <a href="https://jonatanmodin.myportfolio.com" target="_blank"
+          >Jonatan Modin</a
+        >
+        ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
+        ‎ ‎ <br />‎
+      </h3>
+      <h3 id="information" onclick="displaylinks()">
+        Open information <br />
+        ‎
+      </h3>
       <h3 id="date">3 accounts deleted as of 2022-02-15</h3>
-          <script>
-n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("date").innerHTML = "29 accounts deleted as of " + y + "-" + m + "-" + d;
-    </script>
+      <script>
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML =
+          "3 accounts deleted as of " + y + "-" + m + "-" + d;
+      </script>
     </div>
     <iframe
       src="placeholder"
@@ -320,5 +370,9 @@ document.getElementById("date").innerHTML = "29 accounts deleted as of " + y + "
       id="iframe"
       style="border: none"
     ></iframe>
+    <div class="div-only-mobile">
+      Please visit<br />insta-killer.click<br />on a bigger screen<br />to access the
+      site!
+    </div>
   </body>
 </html>
